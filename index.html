@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zotero Library Visualizer</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+</head>
+<body>
+    <div class="geometric-bg">
+        <div class="circle circle-1"></div>
+        <div class="circle circle-2"></div>
+        <div class="triangle triangle-1"></div>
+        <div class="triangle triangle-2"></div>
+    </div>
+
+    <header>
+        <h1>Zotero Library Visualizer</h1>
+        <p class="subtitle">Exploring Scholarly Trends Through Time</p>
+    </header>
+
+    <main>
+        <div id="loading" class="loading-container">
+            <div class="loading-spinner">
+                <div class="spinner-circle"></div>
+                <div class="spinner-triangle"></div>
+            </div>
+            <p>Loading Zotero library data...</p>
+        </div>
+
+        <div id="error" class="error-container" style="display: none;">
+            <h2>Error Loading Data</h2>
+            <p id="error-message"></p>
+        </div>
+
+        <div id="content" class="content-container" style="display: none;">
+            <section class="chart-section">
+                <div class="section-header">
+                    <h2>Tag Trends Over Time</h2>
+                    <p>Stream graph showing how tag usage has evolved</p>
+                </div>
+                <div class="chart-container" id="stream-chart"></div>
+            </section>
+
+            <section class="chart-section">
+                <div class="section-header">
+                    <h2>Publications Timeline</h2>
+                    <p>Number of publications per year - click a year to explore tags</p>
+                </div>
+                <div class="chart-container" id="timeline-chart"></div>
+            </section>
+
+            <section class="chart-section">
+                <div class="section-header">
+                    <h2>Top Tags by Year</h2>
+                    <p id="selected-year-label">Select a year from the timeline above</p>
+                </div>
+                <div class="chart-container" id="bar-chart"></div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>Designed with inspiration from Wassily Kandinsky's Composition VIII</p>
+    </footer>
+
+    <script type="module" src="js/config.js"></script>
+    <script type="module" src="js/zotero-api.js"></script>
+    <script type="module" src="js/data-processor.js"></script>
+    <script type="module" src="js/charts.js"></script>
+    <script type="module">
+        import { initializeApp } from './js/charts.js';
+
+        // Load Google Charts and initialize the app
+        google.charts.load('current', {'packages':['corechart', 'timeline']});
+        google.charts.setOnLoadCallback(initializeApp);
+    </script>
+</body>
+</html>
