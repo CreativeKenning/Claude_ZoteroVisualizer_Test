@@ -11,13 +11,6 @@ export const CONFIG = {
     // Zotero API base URL
     apiBaseUrl: 'https://api.zotero.org',
 
-    // API endpoints
-    endpoints: {
-        groupItems: function() {
-            return `${CONFIG.apiBaseUrl}/groups/${CONFIG.groupId}/items`;
-        }
-    },
-
     // Pagination settings
     itemsPerPage: 100,
 
