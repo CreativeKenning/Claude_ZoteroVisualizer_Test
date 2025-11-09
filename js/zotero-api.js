@@ -42,7 +42,8 @@ export async function fetchAllItems() {
  * @returns {Promise<Object>} Object containing items and total count
  */
 async function fetchItemsPage(start) {
-    const url = new URL(CONFIG.endpoints.groupItems());
+    const urlString = `${CONFIG.apiBaseUrl}/groups/${CONFIG.groupId}/items`;
+    const url = new URL(urlString);
     url.searchParams.append('start', start);
     url.searchParams.append('limit', CONFIG.itemsPerPage);
     url.searchParams.append('format', 'json');
