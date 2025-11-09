@@ -14,7 +14,7 @@ export const CONFIG = {
     // API endpoints
     endpoints: {
         groupItems: function() {
-            return `${this.apiBaseUrl}/groups/${CONFIG.groupId}/items`;
+            return `${CONFIG.apiBaseUrl}/groups/${CONFIG.groupId}/items`;
         }
     },
 
